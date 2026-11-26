@@ -17,9 +17,9 @@ from PIL import Image
 from pydantic import BaseModel, ConfigDict, Field
 
 # --- Configuration ---
-VLLM_BASE_URL = os.getenv("VLLM_BASE_URL", "http://213.192.2.122:40135/v1")
+VLLM_BASE_URL = os.getenv("VLLM_BASE_URL", "http://213.192.2.121:40080/v1")
 VLLM_API_KEY = os.getenv("VLLM_API_KEY", "EMPTY")
-MODEL_NAME = os.getenv("MODEL_NAME", "llamaindex/OCRia-1")
+MODEL_NAME = os.getenv("MODEL_NAME", "Vishva007/OCRia-1-W4A16-GPTQ")
 PROMPT_PATH = Path(os.getenv("PROMPT_PATH", "prompt.txt"))
 MAX_PIXELS = 4_100_000  # ~210 DPI letter page budget from OCRia-1 benchmarks
 PDF_RENDER_DPI = int(os.getenv("PDF_RENDER_DPI", "300"))
@@ -474,4 +474,4 @@ async def index() -> FileResponse:
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host="0.0.0.0", port=9632)
